@@ -1,6 +1,6 @@
 ---
 title: "R para el Análisis Econométrico"
-subtitle: "Módulo 1"
+subtitle: "Módulo 1: Fundamentos Estadísticos en R"
 author: "José Burgos"
 date: "ASOECO"
 output:
@@ -165,7 +165,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Parte I: Fundamentos de R y RStudio
 
 ### Bienvenida a R y RStudio
-- ¿Qué es R? Un lenguaje de programación para computación estadística y gráficos.
-- ¿Qué es RStudio? El Entorno de Desarrollo Integrado (IDE). 
-- Filosofía de R: código abierto, extensible a través de paquetes y con una gran comunidad.
 
+-   ¿Qué es R? Un lenguaje de programación para computación estadística y gráficos.
+-   ¿Qué es RStudio? El Entorno de Desarrollo Integrado (IDE).
+-   Filosofía de R: código abierto, extensible a través de paquetes y con una gran comunidad.
