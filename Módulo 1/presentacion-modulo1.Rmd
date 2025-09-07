@@ -580,13 +580,9 @@ enfct_2019 %>%
 
 Las medidas de dispersión describen la variabilidad o dispersión de un conjunto de datos. Las dos medidas más comunes son la desviación estándar y la varianza.
 
-$$
-\text{\} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}
-$$
+**Varianza (**$s^2$) $$s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}$$
 
-$$
-\text{Desviación Estándar} = \sqrt{\text{Varianza}}
-$$
+**Desviación Estándar (**$s$) $$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
 
 ## Medidas de dispersión
 
@@ -739,6 +735,8 @@ plot_boxplot
 
 4.  Realiza un gráfico de dispersión entre edad y sueldo bruto, coloreando por sexo.
 
+## Ejercicios
+
 5.  Calcula el promedio de sueldo bruto por provincia y realiza un gráfico de barras con los resultados. Sientete libre en personalizar el gráfico.
 
 6.  ¿Los ingresos más bajo a que provincia pertenecen?
@@ -747,7 +745,7 @@ plot_boxplot
 
 8.  ¿Los hombres ganan más que las mujeres?
 
-# FINAL
+# Referencia
 
 ## Referencia
 
