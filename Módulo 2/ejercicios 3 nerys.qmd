@@ -1,0 +1,97 @@
+---
+title: "Microeconometría"
+subtitle: "Por Nerys"
+author: "José Burgos"
+format: html
+editor: visual
+---
+
+## Introducción
+
+Se busca relaciones entre variables, estas pueden ser continua o discretas. Dentro del mundo de las variables, exiten variables cualitativas y cuantitativas.
+
+## Microeconometría
+
+Las relaciones teorica de las variables se representan:
+
+$$
+y=f(x_i, ..., x_k) + u
+$$
+
+Siendo $y$ la variable dependiente, las $x$ son las variables independientes o factores observables y dentro de la variable u o error, estan todas la variables o factores no observables que inciden en la variable dependiente $y$.
+
+A $y$ se le conoce también variable resultado.
+
+## Diseño experimental
+
+Los grupos son equivalentes
+
+### Términos a investigar:
+
+Rivalidades historica
+
+Problema de contrafactual
+
+Espacio de probabilidad
+
+```{r}
+wage <- wooldridge::wage1
+
+m1 <- lm(wage ~ female, data = wage)
+
+
+```
+
+## Diseño no experimentales
+
+No hay selección aleatorio.
+
+Los grupos no son necesariamente equivalentes.
+
+```{r, warning=FALSE}
+m2 <- lm(wage~female + educ, data = wage)
+m3 <- lm(wage~female + educ + exper, data = wage)
+m4 <- lm(wage~female + educ + I(educ^2)+ exper, data = wage)
+
+stargazer::stargazer(m3, m4, type = "text")
+```
+
+```{r}
+# Relación entre experiencia y salario
+library(ggplot2)
+ggplot(wage, aes(x = exper, y = wage)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "blue") +
+  labs(title = "Relación entre experiencia y salario",
+       x = "Años de experiencia",
+       y = "Salario")
+```
+
+```{r}
+# Relación entre educación y salario
+wage |> 
+  ggplot(aes(x = educ, y = wage, colour = factor(female))) +
+    geom_point() +
+    geom_smooth(method = "lm", color = "red") +
+    labs(title = "Relación entre educación y salario",
+         x = "Años de educación",
+         y = "Salario") +
+    facet_wrap(~female)
+```
+
+## Analisis residual
+
+```{r}
+par(mfrow=c(2,2))
+plot(m4)
+par(mfrow=c(1,1))
+```
+
+## Gráfico de los residuos
+
+```{r}
+wage$residuals <- resid(m4)
+
+plot(wage$residuals, type = "line")
+
+```
